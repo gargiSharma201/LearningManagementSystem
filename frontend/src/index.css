@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap');
+@import 'frappe-ui/style.css';
+@import 'frappe-ui/list-style.css';
+@import './styles/blockEditor.css';
+
+/* Enterprise sidebar — government green */
+:root,
+[data-theme='light'] {
+	--surface-sidebar: #6A8A65;
+}
+
+/* This build makes --surface-sidebar transparent in dark mode; point it at
+   gray-1 so the sidebar keeps a visible surface. */
+[data-theme='dark'] {
+	--surface-sidebar: #6A8A65;
+}
+
+/* Sidebar text & icon contrast on dark green */
+.bg-surface-sidebar {
+	background-color: #6A8A65 !important;
+
+	color: rgba(255, 255, 255, 0.9) !important;
+}
+.bg-surface-sidebar svg,
+.bg-surface-sidebar [class*='lucide-'] {
+	color: rgba(255, 255, 255, 0.85) !important;
+}
+/* Nav item labels */
+.bg-surface-sidebar span,
+.bg-surface-sidebar a,
+.bg-surface-sidebar button {
+	color: rgba(255, 255, 255, 0.9) !important;
+}
+/* Hover state */
+.bg-surface-sidebar a:hover,
+.bg-surface-sidebar button:hover {
+	background-color: rgba(255, 255, 255, 0.12) !important;
+}
+/* Active / selected item */
+.bg-surface-sidebar [aria-current='page'],
+.bg-surface-sidebar .router-link-active {
+	background-color: rgba(255, 255, 255, 0.18) !important;
+	color: #fff !important;
+}
+/* Sidebar border */
+.border-e.bg-surface-sidebar,
+.bg-surface-sidebar.border-e {
+	border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* frappe-ui beta.7 FormLabel differs from InputLabel; match standalone labels
+   (and stray inline <label>s) to the field-label style. */
+label.block:not([data-slot='label']) {
+	@apply text-p-sm-medium text-ink-gray-7;
+}
+
+/* frappe-ui beta.7 Switch leaves a loose label/description gap; tighten it so
+   they read as one group (scoped to our lms-switch wrapper). */
+.lms-switch [data-slot='label'] {
+	@apply leading-tight;
+}
+.lms-switch > div:has(> [data-slot='description']) {
+	@apply mt-0.5;
+}
+
+/* Pin a Combobox/MultiSelect dropdown footer so its actions stay reachable while
+   options scroll. Unscoped since frappe-ui popovers portal to <body>. */
+[data-slot='content-body']
+	[data-slot='footer']:has(> [data-popover-footer-sticky]) {
+	position: sticky;
+	bottom: -0.25rem;
+	z-index: 1;
+}
+
+/* frappe-ui's --ink-gray-2 bullets are near-invisible; use --ink-gray-4 (as the
+   ordered-list counters do) so markers stay legible. */
+.prose {
+	--tw-prose-bullets: var(--ink-gray-4);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
+.font-robotoCondensed {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+.font-archivo {
+  font-family: "Archivo", sans-serif;
+}

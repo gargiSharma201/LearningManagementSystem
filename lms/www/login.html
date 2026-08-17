@@ -1,0 +1,5 @@
+{% if frappe.session.user != "Guest" %}
+  <script>window.location.href = "/lms/";</script>
+{% else %}
+  <script>window.location.href = "/lms/login" + (window.location.search || "");</script>
+{% endif %}
